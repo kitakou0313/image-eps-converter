@@ -2,8 +2,8 @@ import os
 from PIL import Image
 import glob
 
-INPUTS_IMAGE_DIR = "./inputs"
-OUTPUTS_IMAGE_DIR = "./outputs"
+INPUTS_IMAGE_DIR = "./datas/inputs"
+OUTPUTS_IMAGE_DIR = "./datas/outputs"
 
 if __name__ == "__main__":
     input_image_paths = glob.glob(INPUTS_IMAGE_DIR+"/*")
