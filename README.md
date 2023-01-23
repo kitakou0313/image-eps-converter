@@ -1,11 +1,5 @@
-# python-remotedev-template
-Visual Studio CodeのRemote developmentを用いてDocker container上で作業するためのテンプレート
+# image-eps-converter
+Latex文書への挿入用に各種画像をepsに変換してくれる
 
-## 起動手順
-1. `.devcontainer/Dockerfile`最終行の`ENV PYTHONPATH=...`内の`/workspace/`以下をリポジトリ名に変更
-    - リポジトリ内で定義したpackageを探索可能にするため
-
-## ToDo
-- unrootでのコンテナ起動
-    - `.git`以下の所有権がrootになり、コンテナ外でcommitできないことがある
-    - コンテナ外で作業しないのでいらないかも
+## tensorBoardコマンド例
+- `tensorboard --logdir ./ex_res/uncased-clean/logs --bind_all --port 8080`
