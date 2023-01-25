@@ -1,11 +1,20 @@
 import os
 from PIL import Image
 import glob
-
-INPUTS_IMAGE_DIR = "./datas/inputs"
-OUTPUTS_IMAGE_DIR = "./datas/outputs"
+import argparse
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate NTGA attack!")
+    parser.add_argument("--inputs_image_dir",
+                        default="./datas/inputs", type=str)
+    parser.add_argument("--outputs_image_dir", type=str,
+                        default="./datas/outputs")
+
+    args = parser.parse_args()
+
+    INPUTS_IMAGE_DIR = args.inputs_image_dir
+    OUTPUTS_IMAGE_DIR = args.outputs_image_dir
+
     input_image_paths = glob.glob(INPUTS_IMAGE_DIR+"/*")
 
     for image_path in input_image_paths:
