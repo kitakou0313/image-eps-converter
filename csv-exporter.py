@@ -2,9 +2,18 @@ from tensorboard.backend.event_processing.event_accumulator import EventAccumula
 import csv
 import sys
 
+import argparse
+
 if __name__ == "__main__":
-    LOG_PATH = 'datas/graph-datas/uncased/sampled-for-ntgaed-clean-mlp/logs/events.out.tfevents.1675232493.f7efdf6531e5.66.0'
-    OUTPUT_DIR_PATH = './'
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--log_path", required=True, type=str,
+                        help="path to tensorboard log data")
+    parser.add_argument("--csv_dir", required=True, type=str,
+                        help="path to dir to save csv data")
+    args = parser.parse_args()
+
+    LOG_PATH = args.log_path
+    OUTPUT_DIR_PATH = args.csv_dir
 
     event_acc = EventAccumulator(LOG_PATH, size_guidance={'scalars': 0})
     event_acc.Reload()  # ログファイルのサイズによっては非常に時間がかかる
