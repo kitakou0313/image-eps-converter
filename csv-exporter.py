@@ -1,6 +1,6 @@
 from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
 import csv
-import sys
+import os
 
 import argparse
 
@@ -34,12 +34,12 @@ if __name__ == "__main__":
 
     csv_header = ("Step", "Value")
 
-    with open(OUTPUT_DIR_PATH+"/train.csv", 'w') as f:
+    with open(os.path.join(OUTPUT_DIR_PATH, "train.csv"), 'w') as f:
         writer = csv.DictWriter(f, csv_header)
         writer.writeheader()
         writer.writerows(train_acc)
 
-    with open(OUTPUT_DIR_PATH+"/test.csv", 'w') as f:
+    with open(os.path.join(OUTPUT_DIR_PATH, "test.csv"), 'w') as f:
         writer = csv.DictWriter(f, csv_header)
         writer.writeheader()
         writer.writerows(test_acc)
